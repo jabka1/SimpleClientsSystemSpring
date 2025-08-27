@@ -1,0 +1,41 @@
+<configuration>
+
+    <appender name="SPRING_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/tech.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PROVIDER_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/provider.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="PROVIDERS_USERS_FILE" class="ch.qos.logback.core.FileAppender">
+        <file>logs/providersUsers.log</file>
+        <append>true</append>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <root level="INFO">
+        <appender-ref ref="SPRING_FILE"/>
+    </root>
+
+    <logger name="com.example.testapp.service.ProviderService" level="INFO" additivity="false">
+        <appender-ref ref="PROVIDER_FILE"/>
+    </logger>
+
+    <logger name="com.example.testapp.service.ProviderUserService" level="INFO" additivity="false">
+        <appender-ref ref="PROVIDERS_USERS_FILE"/>
+    </logger>
+
+    <logger name="org.springframework.web.servlet.DispatcherServlet" level="DEBUG" additivity="true"/>
+
+</configuration>
