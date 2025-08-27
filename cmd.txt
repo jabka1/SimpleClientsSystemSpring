@@ -1,0 +1,2 @@
+docker build -t java-app .
+docker run -d -v ${pwd}\config:/app/config -v ${pwd}\logs:/app/logs --name java-app-cont -p 8080:8080 java-app:latest
